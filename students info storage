@@ -1,0 +1,37 @@
+//SPDX -License_identifier:MIT
+//example with all like modofier + constructor +structure and mapping
+pragma solidity ^0.8.0;
+contract slParticipants{
+    address public owner;
+    //constructor use
+    constructor() public {
+        owner=msg.sender;
+    }
+    //modifier use 
+    modifier OnlySl() {
+        require(msg.sender==owner);
+        _;
+    }
+    //structure is used for defining the participants details
+    struct participants {
+        string Pname;
+        uint Page;
+        string Pemail;
+        uint Pphoneno;
+        string courseenrolled;
+        bool feepaid;
+    }
+    //mapping is used here to assign the key for datatype and values
+    mapping (uint => participants) Sparticipants;
+    function addParticipants (uint key , string memory _Pname,uint _Page,string memory _Pemail
+    ,uint  _Pphoneno, string memory _courseenrolled, bool _feepaid) public OnlySl{
+        //intializing the values here 
+        Sparticipants[key].Pname=_Pname;
+        Sparticipants[key].Page=_Page;
+        Sparticipants[key].Pemail=_Pemail;
+        Sparticipants[key].Pphoneno=_Pphoneno;
+        Sparticipants[key].courseenrolled=_courseenrolled;
+        Sparticipants[key].feepaid=_feepaid;
+    }
+    
+}
