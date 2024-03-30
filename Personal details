@@ -1,0 +1,10 @@
+//SPDX -License - Identifier :MIT
+pragma solidity ^0.8.0;
+contract personaldetails{
+    string public  name ="Siddayya";
+    string public  fatername ="Shivayya";
+    string public  surname = "Muttagi";
+    uint8 public  age = 23;
+    string  public qualification = "B.com";
+    string  public workexperience = "0";
+}
