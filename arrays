@@ -1,0 +1,64 @@
+//SPDX -License-Identifier:MIT
+pragma solidity ^0.8.0;
+contract onedimensionaarray{
+    //dynamic array of integers 
+    uint256[] public numbers;
+
+    //constructor to initialize the array 
+    constructor(){
+        numbers = [1,2,3,4,5];
+    }
+    //function to add numbers to array 
+    function addnumber(uint256 newNumber) external {
+        numbers.push(newNumber);
+    }
+
+}
+//dynamic example
+contract dynamicarray{
+    //dynamic array of string 
+    string[] public names;
+
+    //function to add name to array 
+    function addname(string memory newname) external {
+        names.push(newname);
+    } 
+    //function to get length of array 
+    function getArrayLength () external view returns (uint) {
+        return names.length;
+    }
+}
+//real use cases of arrays 
+//array in address use cases 
+ contract Whitelist {
+    address[] public whitelistedAddresses;
+
+    function addToWhitelist(address _address) external {
+        whitelistedAddresses.push(_address);
+    }
+}
+ 
+
+
+//fixed sizedstring arrays 
+contract fixedsizedarrays {
+    string[3] public fixedNames;
+
+    constructor() {
+        fixedNames[0]="Alice";
+        fixedNames[1]="bob";
+        fixedNames[2]="sidd";
+    }
+}
+
+ //use case of array in getting token balance 
+ contract Token {
+    mapping (address => uint256) public balances;
+    
+    //function that helps to transfer the money 
+    function transfer (address to, uint256 amount)  external {
+        require (balances[msg.sender] >=amount, "Insufficient balance");
+        balances [msg.sender] -= amount;
+        balances[to] += amount;
+    }
+ }
