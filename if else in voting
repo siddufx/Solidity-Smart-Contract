@@ -1,0 +1,43 @@
+//SPDX -License-Identifier:MIT
+pragma solidity ^0.8.0;
+contract Voting{
+    address public HullappaMeti = 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2;
+    address public CharantiMathIranna =0x4B20993Bc481177ec7E8f571ceCaE8A9e22C02db;
+
+    //mapping inthis contract 
+    mapping (address => bool) public hasVoted;
+    function vote( address candidate) public {
+        if (!hasVoted[msg.sender]) {
+            hasVoted[msg.sender] = true;
+            if (candidate== HullappaMeti){
+            }
+            else if (candidate==CharantiMathIranna){
+            }else{
+                revert("Invalid Candidate!");
+            }
+        }else{
+            revert ("You have already voted");
+        }
+    }
+}
+//---------------------------------------------------------------------------------------------------
+contract votinginIndia{
+    address public narendraModi = 0x617F2E2fD72FD9D5503197092aC168c91465E7f2;
+    address public rahulGandhi =  0x03C6FcED478cBbC9a4FAB34eF9f40767739D1Ff7;
+
+    //mapping in this contract used for tracking the person voted or not thats it
+    mapping (address => bool) public hasVoted ;
+    function vote(address candidate) public {
+        if (!hasVoted[msg.sender]){
+            hasVoted[msg.sender]=true;
+            if (candidate== narendraModi){
+            }
+            else if (candidate==rahulGandhi){
+            }else {
+                revert ("Invalid candidate");
+            }
+        }else {
+            revert ("you are alreday voted");
+        }
+    }
+}
