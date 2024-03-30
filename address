@@ -1,0 +1,41 @@
+//SPDX -License-Identifier:MIT
+pragma solidity ^0.8.0;
+contract addressrelated {
+    address public walletAddress;
+    //write function set walletaddress
+    function setwalletaddress(address _walletaddress) public {
+        walletAddress=_walletaddress;
+    }
+    function getbalance() public view returns (uint) {
+        return walletAddress.balance;
+    }
+}//this is simple code that what i am going to do is i am as user is goigng to give the address 
+//---------------------------------------------------------------------------------------------------
+
+//mapping + error handling + Require + msg.sender
+contract allthings{
+    address public person = msg.sender;
+    mapping (address=> int256) favNumber;
+
+    //write function 
+    function setFavNumber(int256 num) public {
+        require (num !=13, "This is restricted");
+        favNumber[msg.sender]=num;
+    }
+    //read function 
+    function getFavno() public view returns (int256) {
+        return favNumber[msg.sender];
+    }
+}
+//-------------------------------------------------------------------------------------------------------
+//address example + transfer
+contract test{
+    //2nd wallet address
+    address wallet_1=0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2;
+    //to receive eth inside sc from wallet3
+    function getMoney() public payable {} 
+    //to transfer eth to wallet2
+    function transferrMoney () public {
+        payable(wallet_1).transfer(address(this).balance); 
+    }
+}
