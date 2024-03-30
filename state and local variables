@@ -1,0 +1,27 @@
+/SPDX -License-Identifier :MIT
+pragma solidity ^0.8.0;
+contract test {
+    //state variabl e
+    uint storedData =100;
+    function getresult () public view returns (uint) {
+        //local variable 
+        uint a=10;
+        uint b= 20;
+        uint c=34;
+        uint result =a+b+c;
+        return result;
+    }
+    
+}
+contract test2{
+    //state variable 
+    uint storedvalue =100;
+    //read function 
+    function getresult () public view returns (uint){
+        //local variables 
+        uint a=10;
+        uint b=29;
+       uint result =a+b;
+       return result ;
+    }
+}
