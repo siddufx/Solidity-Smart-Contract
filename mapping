@@ -1,0 +1,46 @@
+//SPDX -License-Identifier:MIT
+pragma solidity ^0.8.0;
+
+    struct donor_dts{
+        string name;
+        uint age;
+        string add;
+        uint don;
+    }
+    contract addMapping {
+        mapping(address=>donor_dts) public acc_info;
+        //after mapping there is need of initializatoin of particular contract by using function
+        function set(string memory _name,uint _age, string memory _add, uint _don)public {
+            acc_info [msg.sender]=donor_dts(_name,_age,_add,acc_info[msg.sender].don+_don);
+        }
+    }
+
+
+
+    contract test{
+        string ins_name;
+        bool registered;
+        string[] name;
+        uint8[] age;
+
+        //write function and taking input from user
+        function setInsDetails (string memory _ins_name,bool _registered) public {
+            //permanent to Temporary memory
+            ins_name=_ins_name;
+            registered=_registered;
+        }
+        //write function for student and taking input from user
+        function setStudentDetails(string memory _name,uint8 _age) public {
+            name.push(_name);
+             age.push(_age);
+        }
+        //read function for name and age
+        function getstudentDetails (uint _index) public view returns (string memory,uint8){
+            return (name[_index],age[_index]);
+        }
+        //read function foor institution details
+        function getinsdetails () public view returns (string memory _ins_name,bool _registered){
+            return (ins_name,registered);
+        }
+
+    }
