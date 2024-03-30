@@ -1,0 +1,58 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+contract studentAdmissionDetails {
+    struct StudentDetails {
+        string nameOfStudent;
+        string fatherName;
+        string motherName;
+        string age;
+        string location;
+        string maritalStatus;
+        string previousYearResult;
+    }
+
+    mapping(uint => StudentDetails) public studentDetails;
+
+    // Write a function to set values, taking input from the user
+    function setValues(
+        uint rollNumber,
+        string memory nameOfStudent,
+        string memory fatherName,
+        string memory motherName,
+        string memory age,
+        string memory location,
+        string memory maritalStatus,
+        string memory previousYearResult
+    ) public {
+        // Initializing the values in the struct
+        studentDetails[rollNumber] = StudentDetails({
+            nameOfStudent: nameOfStudent,
+            fatherName: fatherName,
+            motherName: motherName,
+            age: age,
+            location: location,
+            maritalStatus: maritalStatus,
+            previousYearResult: previousYearResult
+        });
+    }  // Read data about mapping and struct here
+    function queryOfStudent(uint rollNumber) public view returns (
+        string memory nameOfStudent,
+        string memory fatherName,
+        string memory motherName,
+        string memory age,
+        string memory location,
+        string memory maritalStatus,
+        string memory previousYearResult
+    ) {
+        // Returning the values from the struct
+        return (
+            studentDetails[rollNumber].nameOfStudent,
+            studentDetails[rollNumber].fatherName,
+            studentDetails[rollNumber].motherName,
+            studentDetails[rollNumber].age,
+            studentDetails[rollNumber].location,
+            studentDetails[rollNumber].maritalStatus,
+            studentDetails[rollNumber].previousYearResult
+        );
+    }
+}
