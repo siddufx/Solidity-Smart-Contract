@@ -1,0 +1,120 @@
+//SPDX -License -Identifier :MIT
+pragma solidity ^0.8.0;
+contract enums{
+    enum pizzasize {Small, Medium , Large}
+    pizzasize public pizzatype = pizzasize.Large;
+}//Above this is one example for enum very simple one 
+
+contract simpleone {
+    enum state {Created , Processing , Rejected}
+
+    state currentstatus;
+function Ccurrentstatus () public view returns (state){
+    return state.Created;
+}  
+}
+//-------------------------------------------------------------------------------------------------
+//DIRECTION ENUM by 1 method 
+contract Directionenum {
+    enum Direction {North,South,East,Weast}
+    
+    Direction public CurrentDirection;
+
+    function CcurrentDirection() public view returns (Direction){
+        return Direction.East;
+    }
+    function geteast () public {
+        CurrentDirection=Direction.East;
+    }
+}
+//-----------------------------------------------------------------------------------------------------
+//Days of week enum
+contract daysofweekEnum{
+    enum Days {monday,tuesday,wednesday,thursday,friday,saturday,sunday}
+
+    Days Today ;
+    Days defaultday;
+    Days Yestarday;
+
+    function settoday () public {
+        Today = Days.tuesday;
+    }
+    //Read function 
+    function settodayone() public view returns (Days){
+        return Today;
+    }
+}
+contract anothermethodday{
+    enum Days {Monday,Tuesday,Wednesday,Thrusday}
+
+    Days public today;
+
+    constructor (){
+    today=Days.Thrusday;
+}
+}
+contract ticketstatusenum{
+    enum Status {open,inprogress,closed,resolved}
+
+    Status public current=Status.open;
+}
+//-----------------------------------------------------------------------------------------------------
+contract ticketStatus{
+    enum Status1 {open,inprogress,closed,resolved}
+    
+    Status1 public currentone;
+
+    constructor () {
+    currentone= Status1.resolved; 
+
+    }
+
+}
+//----------------------------------------------------------------------------------------------------
+contract coinflipEnum {
+    enum coin {Heads,Tails}
+
+    coin public result ;
+
+    function flipcoin () external {
+        //random;y set result for demostration purposes 
+        if (block.timestamp % 2==0){
+            result = coin.Heads;
+        }else {
+            result=coin.Tails;
+        }
+    }
+}
+//------------------------------------------------------------------------------------------------------------------
+//traffic lightb enum
+contract trafficlight {
+    enum lights{Red, green,yellow}
+
+    lights public currentlight;
+    //here i can use different methods that i can use 
+    constructor () {
+        currentlight=lights.Red;
+    }
+}
+contract test{
+    enum pizzasize {Small,Large,Medium}
+    pizzasize choice;
+    pizzasize defaultchoice = pizzasize.Medium;
+
+    //write function 
+    function setsmall() public {
+        choice = pizzasize.Small;
+    }
+    //read function 
+    function getchoice() public view returns (pizzasize){
+        return choice;
+    }
+    //read function 
+    function getdefaultchoice() public view returns (uint) {
+        return uint (defaultchoice);
+    }
+    //read function
+    function getmediumone () public view returns (pizzasize){
+        return defaultchoice;
+    }
+}
