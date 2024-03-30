@@ -1,0 +1,36 @@
+//SPDX -License-Identifier:MIT
+pragma solidity ^0.8.0;
+//what all needed  : Structure + mapping + function o read the data + Transfer property  
+contract propertyTransfer{
+    //first i need to add all property details in the form of structure 
+    struct propertyDetails{
+        string name;
+        uint256 area;
+        address owner;
+        uint256 value;
+        string location;
+    }
+    //write data ,mapping (mapping is collection of key pairs that user is going to assign
+    mapping (uint256 => propertyDetails) public properties;
+    function addProperty(uint _id,string memory _name,uint256 _area, uint256 _value, string memory _location) public {
+        properties[_id].name=_name;
+        properties[_id].area=_area;
+        properties[_id].owner=msg.sender;
+        properties[_id].value=_value;
+        properties[_id].location=_location;
+    }
+    //Read data for what ever stored by above function 
+    function queryOfProperty(uint256 _id) public view returns (string memory name,uint256 area,address 
+    owner,uint256 value, string memory location){
+        return (properties[_id].name,
+        properties[_id].area,
+        properties[_id].owner,
+        properties[_id].value,
+        properties[_id].location);
+    }
+    //last one is about transfer of property 
+    function transferaProperty(uint256 _id, address newOwner) public {
+        properties[_id].owner=newOwner;
+    }
+
+}
